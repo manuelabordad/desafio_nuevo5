@@ -35,7 +35,10 @@ class Contenedor {
 				producto.id = this.productos.length + 1;
 			}
 			this.productos.push(producto);
-			await fs.promises.writeFile(this.ruta, JSON.stringify(this.productos));
+			await fs.promises.writeFile(
+				this.ruta,
+				JSON.stringify(this.productos, null, 2)
+			);
 			return producto.id;
 		} catch (error) {
 			return null;
@@ -59,7 +62,7 @@ class Contenedor {
 				(producto) => producto.id.toString() !== id
 			);
 			console.log("newArray", newArray);
-			await fs.promises.writeFile(this.ruta, JSON.stringify(newArray));
+			await fs.promises.writeFile(this.ruta, JSON.stringify(newArray, null, 2));
 		} catch (error) {
 			return null;
 		}
@@ -84,7 +87,7 @@ class Contenedor {
 
 			lista[index] = producto;
 
-			await fs.promises.writeFile(this.ruta, JSON.stringify(lista));
+			await fs.promises.writeFile(this.ruta, JSON.stringify(lista, null, 2));
 			return await this.getById(id);
 		} else {
 			return null;

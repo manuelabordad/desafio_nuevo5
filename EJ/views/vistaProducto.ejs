@@ -39,7 +39,13 @@
 							<tr>
 								<td><%=producto.title%></td>
 								<td>$ <%=producto.price%></td>
-								<td><img src="<%=producto.thumbnail%>" /></td>
+								<td>
+									<img
+										src="<%=producto.thumbnail%>"
+										width="200px"
+										height="200px"
+									/>
+								</td>
 							</tr>
 							<% }) %>
 						</tbody>
