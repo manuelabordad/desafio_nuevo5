@@ -1,7 +1,7 @@
 doctype html
 head
   meta(charset='utf-8')
-  title ejs
+  title pug
   meta(name='description' content='Vista de productos')
   meta(name='viewport' content='width=device-width, initial-scale=1')
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We' crossorigin='anonymous')
@@ -13,9 +13,9 @@ div
     div
       h4 Vista de Productos:
       if productos.length < 1
-      h5 No se encontraron productos.
+        h5 No se encontraron productos.
       else 
-      table.table
+        table.table
         thead
           tr
             th Nombre:
@@ -23,8 +23,8 @@ div
             th Foto:
         tbody
         each producto in productos
-          tr
-            td {producto.title}
-            td {producto.price}
-            td
-              img(src='producto.thumbnail' width='200px' height='200px')
+            tr
+              td #{producto.title}
+              td #{producto.price}
+              td
+                img(src=producto.thumbnail  width='200px' height='200px')
